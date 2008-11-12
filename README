@@ -1,0 +1,26 @@
+
+= SucksVN =
+
+Mauro Pompilio
+
+== Directory structure ==
+
+svn
+ |_project
+        |_activity.log
+        |_branches
+        |_trunk
+        |_tags
+        |_shared
+              |_database.yml
+
+== Environment variables ==
+
+.bashrc:
+
+  # SucksVN
+  export SVNUSER="pompilio"
+  export SVNPATH="/home/mauro/src/svn/project"
+  export SVNURL="svn.project.net/data/svn/project"
+  export SVNLOG="/home/mauro/src/svn/project/activity.log"
+
