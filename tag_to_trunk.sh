@@ -9,7 +9,7 @@ if [ "$1" = "--help" ] || [ ! -n "$1" ];then
 else
   # Logging
   echo "[SucksVN] Merging TAG \"$1\" into TRUNK"
-  echo "[`date -R`] Trunk <= $1 tag" >> $SVNLOG
+  echo "[`date +"%Y%m%d %H:%M"`] Trunk <= $1 tag" >> $SVNLOG
   
   # Getting revision
   echo " + Using the last --stop-on-copy revision on the tag."

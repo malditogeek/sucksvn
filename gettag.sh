@@ -10,11 +10,15 @@ else
   # Logging
   MSG="[SucksVN] Checking out tag: $1"
   echo $MSG
-  echo "[`date -R`] New tag: $1" >> $SVNLOG
+  echo "[`date +"%Y%m%d %H:%M"`] New tag: $1" >> $SVNLOG
   
   # Cheking out and setting up DB
   svn checkout svn+ssh://$SVNUSER@$SVNURL/tags/$1 $SVNPATH/tags/$1
-  ln -s $SVNPATH/shared/database.yml $SVNPATH/tags/$1/config/database.yml
+  if [ -f $SVNPATH/shared/database.yml ]; then
+    ln -s $SVNPATH/shared/database.yml $SVNPATH/tags/$1/config/database.yml
+  else
+    echo " - Not setting up DB."
+  fi
   
   echo " + Checked out to: $SVNPATH/tags/$1"
 fi

@@ -10,7 +10,7 @@ else
   # Logging
   MSG="[SucksVN] Removing tag: $1"
   echo $MSG
-  echo "[`date -R`] Deleted tag: $1" >> $SVNLOG
+  echo "[`date +"%Y%m%d %H:%M"`] Deleted tag: $1" >> $SVNLOG
   
   # Removing remote and local tag
   svn rm svn+ssh://$SVNUSER@$SVNURL/tags/$1 -m "$MSG"

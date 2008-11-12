@@ -10,14 +10,18 @@ else
   # Logging
   MSG="[SucksVN] Creating branch: $1"
   echo $MSG
-  echo "[`date -R`] New branch: $1" >> $SVNLOG
+  echo "[`date +"%Y%m%d %H:%M"`] New branch: $1" >> $SVNLOG
   
   # Branching
   svn copy svn+ssh://$SVNUSER@$SVNURL/trunk svn+ssh://$SVNUSER@$SVNURL/branches/$1 -m "$MSG"
   
   # Cheking out and setting up DB
   svn checkout svn+ssh://$SVNUSER@$SVNURL/branches/$1 $SVNPATH/branches/$1
-  ln -s $SVNPATH/shared/database.yml $SVNPATH/tags/$1/config/database.yml
+  if [ -f $SVNPATH/shared/database.yml ]; then
+    ln -s $SVNPATH/shared/database.yml $SVNPATH/tags/$1/config/database.yml
+  else
+    echo " - Not setting up DB."
+  fi
   
   echo " + Checked out to: $SVNPATH/branches/$1"
 fi

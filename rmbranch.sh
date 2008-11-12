@@ -10,7 +10,7 @@ else
   # Logging
   MSG="[SucksVN] Removing branch: $1"
   echo $MSG
-  echo "[`date -R`] Deleted branch: $1" >> $SVNLOG
+  echo "[`date +"%Y%m%d %H:%M"`] Deleted branch: $1" >> $SVNLOG
   
   # Removing remote and local branch
   svn rm svn+ssh://$SVNUSER@$SVNURL/branches/$1 -m "$MSG"

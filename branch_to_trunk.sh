@@ -9,7 +9,7 @@ if [ "$1" = "--help" ] || [ ! -n "$1" ];then
 else
   # Logging
   echo "[SucksVN] Merging BRANCH \"$1\" into TRUNK"
-  echo "[`date -R`] Trunk <= $1 branch" >> $SVNLOG
+  echo "[`date +"%Y%m%d %H:%M"`] Trunk <= $1 branch" >> $SVNLOG
   
   # Getting the latest update revision
   echo " + Using the last --stop-on-copy revision on the branch."
