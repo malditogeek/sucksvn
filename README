@@ -1,9 +1,17 @@
 
 = SucksVN =
 
-Mauro Pompilio
+Author:  Mauro Pompilio
+Contact: hackers.are.rockstars [at] gmail [dot] com
 
-== Directory structure ==
+== Notes ==
+
+I hacked this set of scripts to help me in a branch-based development
+environment of a Rails projects, that's why there's a 'database.yml'.
+
+If your projects isn't a Rails one, nevermind the 'shared' directory.
+
+== Directory structure needed ==
 
 svn
  |_project
@@ -12,11 +20,12 @@ svn
         |_trunk
         |_tags
         |_shared
-              |_database.yml
+              |_database.yml (if using together a Rails project)
 
 == Environment variables ==
 
-.bashrc:
+GNU/Linux boxes => .bashrc 
+Mac OSX boxes => .profile
 
   # SucksVN
   export SVNUSER="pompilio"
