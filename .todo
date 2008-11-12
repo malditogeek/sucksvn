@@ -1,0 +1,11 @@
+<todo version="0.1.19">
+    <note priority="high" time="1226517439">
+        Support multiple projects
+    </note>
+    <note priority="medium" time="1226517427">
+        Log activity only if the command actually runs
+    </note>
+    <note priority="low" time="1226517466">
+        Combine SVNUSER and SVNURL?
+    </note>
+</todo>
