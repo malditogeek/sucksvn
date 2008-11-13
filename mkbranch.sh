@@ -16,9 +16,12 @@ else
   svn copy svn+ssh://$SVNUSER@$SVNURL/trunk svn+ssh://$SVNUSER@$SVNURL/branches/$1 -m "$MSG"
   
   # Cheking out and setting up DB
+  echo " + Checking out a local copy"
   svn checkout svn+ssh://$SVNUSER@$SVNURL/branches/$1 $SVNPATH/branches/$1
+
   if [ -f $SVNPATH/shared/database.yml ]; then
-    ln -s $SVNPATH/shared/database.yml $SVNPATH/tags/$1/config/database.yml
+    echo " + Linking database.yml"
+    ln -s $SVNPATH/shared/database.yml $SVNPATH/branches/$1/config/database.yml
   else
     echo " - Not setting up DB."
   fi
